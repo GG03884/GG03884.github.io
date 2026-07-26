@@ -1,0 +1,61 @@
+<nav>
+  <div class="container nav-container">
+
+    <a href="/" class="logo">
+      Gayatri Gupta
+    </a>
+
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#prd">PRD</a>
+    </div>
+
+  </div>
+</nav>
+
+
+<style>
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: rgba(5,5,5,0.7);
+}
+
+.nav-container {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.links {
+  display: flex;
+  gap: 28px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.links a:hover {
+  color: white;
+}
+
+
+@media(max-width:900px){
+
+.links{
+ display:none;
+}
+
+}
+</style>
