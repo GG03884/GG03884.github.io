@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import logPulseDemo from "../videos/Recording 2026-07-26 134350.mp4";
+import videoProjectA from "../videos/Video Project A.mp4";
 ---
 
 <Layout>
@@ -238,6 +239,46 @@ import logPulseDemo from "../videos/Recording 2026-07-26 134350.mp4";
           </video>
         </div>
       </div>
+
+      <div class="project-showcase">
+        <div class="project-copy">
+          <p class="project-kicker">
+            Featured Build
+          </p>
+
+          <h2>
+            IntelliQuery / Document Intelligence Assistant
+          </h2>
+
+          <p>
+            An AI-powered RAG experience that turns uploaded PDFs into an
+            interactive knowledge assistant with grounded answers, citations,
+            and fast semantic search.
+          </p>
+
+          <div class="project-metrics">
+            <span>&lt;5 sec indexing</span>
+            <span>3–5 sec responses</span>
+            <span>100% grounded answers</span>
+          </div>
+
+          <div class="project-actions">
+            <a href="#case-studies-2" class="primary">
+              Read Case Study
+            </a>
+            <a href="#prd-2" class="secondary">
+              View PRD
+            </a>
+          </div>
+        </div>
+
+        <div class="project-demo">
+          <video controls preload="metadata" playsinline>
+            <source src={videoProjectA} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -376,6 +417,135 @@ import logPulseDemo from "../videos/Recording 2026-07-26 134350.mp4";
     </div>
   </section>
 
+  <section id="case-studies-2" class="case-study">
+    <div class="container case-study-layout">
+      <aside class="case-study-aside">
+        <p class="section-tag">
+          Case Study
+        </p>
+
+        <h2>
+          IntelliQuery: An AI-powered document intelligence assistant for accurate knowledge retrieval.
+        </h2>
+
+        <p>
+          How I built a retrieval-augmented generation app that turns static PDFs into an interactive
+          knowledge assistant with grounded answers, source citations, and fast semantic search.
+        </p>
+
+        <div class="impact-strip">
+          <div>
+            <strong>&lt;5 sec</strong>
+            <span>PDF indexing</span>
+          </div>
+          <div>
+            <strong>3–5 sec</strong>
+            <span>response generation</span>
+          </div>
+          <div>
+            <strong>100%</strong>
+            <span>document-grounded answers</span>
+          </div>
+        </div>
+      </aside>
+
+      <article class="case-study-story">
+        <section>
+          <span>01</span>
+          <h3>Executive Summary</h3>
+          <p>
+            IntelliQuery transforms static PDF documents into a conversational knowledge assistant.
+            Users can upload one or more documents, ask natural-language questions, and receive
+            accurate answers grounded in the uploaded content with source citations for verification.
+          </p>
+          <p>
+            The product combines semantic retrieval, local embeddings, and a large language model
+            to make information discovery faster and more intuitive while reducing the need for
+            manual document scanning.
+          </p>
+        </section>
+
+        <section>
+          <span>02</span>
+          <h3>The Problem</h3>
+          <p>
+            Teams and individuals often rely on long PDFs such as policies, handbooks, technical docs,
+            and research papers to find critical information. Traditional keyword search is slow,
+            brittle, and often misses contextually relevant answers.
+          </p>
+
+          <ul>
+            <li>Manual browsing through long documents wastes time and creates repetitive effort.</li>
+            <li>Keyword search often returns irrelevant results or misses answers expressed differently.</li>
+            <li>Users need trustworthy responses that can be verified against the original document.</li>
+          </ul>
+        </section>
+
+        <section>
+          <span>03</span>
+          <h3>The Goal</h3>
+          <p>
+            Build an intelligent document assistant that allows users to ask questions naturally and
+            receive context-aware answers grounded solely in the uploaded documents, with transparent
+            citations and a smooth experience for multi-document workflows.
+          </p>
+        </section>
+
+        <section>
+          <span>04</span>
+          <h3>The AI Solution</h3>
+          <p>
+            IntelliQuery uses a retrieval-augmented generation pipeline. Uploaded PDFs are extracted,
+            chunked, embedded, and indexed in ChromaDB, then queried semantically to find the most
+            relevant passages before generating a response with Llama 3.2 through Ollama.
+          </p>
+
+          <div class="flow-line">
+            <span>Upload PDFs</span>
+            <span>Extract text</span>
+            <span>Embed & index</span>
+            <span>Retrieve & answer</span>
+          </div>
+        </section>
+
+        <section>
+          <span>05</span>
+          <h3>Architecture & Stack</h3>
+          <p>
+            The application was designed as a modular, production-ready system that separates ingestion,
+            retrieval, and generation layers while keeping the experience lightweight and intuitive.
+          </p>
+
+          <dl>
+            <div>
+              <dt>Frontend</dt>
+              <dd>React, TypeScript, Vite, and Tailwind CSS for a modern chat-style experience.</dd>
+            </div>
+            <div>
+              <dt>Backend</dt>
+              <dd>Python and FastAPI for document processing, indexing, and query orchestration.</dd>
+            </div>
+            <div>
+              <dt>AI Layer</dt>
+              <dd>Llama 3.2 via Ollama, Nomic Embed Text, ChromaDB, PyMuPDF, and vector similarity search.</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section>
+          <span>06</span>
+          <h3>Results & Impact</h3>
+          <p>
+            The project demonstrated how RAG can make knowledge retrieval more accessible, trustworthy,
+            and efficient. It reduced manual search time from minutes to seconds, improved answer
+            grounding through retrieval-based context, and laid the foundation for future expansion
+            into OCR, hybrid search, reranking, and conversation memory.
+          </p>
+        </section>
+      </article>
+    </div>
+  </section>
+
   <section id="prd" class="prd">
     <div class="container">
       <p class="section-tag">
@@ -475,6 +645,80 @@ import logPulseDemo from "../videos/Recording 2026-07-26 134350.mp4";
     </div>
   </section>
 
+  <section id="prd-2" class="prd">
+    <div class="container">
+      <p class="section-tag">
+        PRD
+      </p>
+
+      <h2>
+        IntelliQuery - AI-powered document intelligence assistant.
+      </h2>
+
+      <p class="prd-intro">
+        A completed product requirements document for a retrieval-augmented generation app that turns
+        uploaded PDFs into an interactive, citation-backed knowledge assistant.
+      </p>
+
+      <div class="prd-meta">
+        <span>Author: Gayatri Gupta</span>
+        <span>Status: Completed</span>
+        <span>Date: July 29, 2026</span>
+        <span>Target Release: NA</span>
+      </div>
+
+      <div class="prd-grid">
+        <div>
+          <h3>Product Overview</h3>
+          <p>
+            IntelliQuery helps students, researchers, employees, and technical teams find information
+            in long PDFs through natural-language questions instead of manual scanning or brittle keyword search.
+          </p>
+        </div>
+
+        <div>
+          <h3>AI Value Proposition</h3>
+          <p>
+            The product uses a RAG architecture with Llama 3.2 to retrieve semantically relevant passages,
+            generate grounded answers, and provide citations and page references for transparency.
+          </p>
+        </div>
+
+        <div>
+          <h3>User Workflow</h3>
+          <p>
+            Users upload one or more PDFs, the system extracts and chunks the text, stores embeddings in ChromaDB,
+            and then answers questions with document-grounded responses.
+          </p>
+        </div>
+
+        <div>
+          <h3>Technical Architecture</h3>
+          <p>
+            The system combines PDF processing, semantic chunking, embedding generation, vector search,
+            and Llama 3.2 inference through Ollama to deliver a modular and scalable experience.
+          </p>
+        </div>
+
+        <div>
+          <h3>Performance Targets</h3>
+          <p>
+            The target experience includes under 5 seconds for typical PDF processing, under 2 seconds per document
+            for embedding generation, under 500 ms for retrieval, and 3–5 seconds for end-to-end answers.
+          </p>
+        </div>
+
+        <div>
+          <h3>Guardrails & Safety</h3>
+          <p>
+            The product is designed to reject unsupported files, avoid fabricated answers, handle unsupported queries,
+            and provide graceful fallback messages when relevant information cannot be found.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   </main>
 </Layout>
 
@@ -568,6 +812,12 @@ import logPulseDemo from "../videos/Recording 2026-07-26 134350.mp4";
   grid-template-columns:minmax(280px, 0.8fr) minmax(0, 1.2fr);
   gap:56px;
   align-items:center;
+}
+
+.project-showcase + .project-showcase {
+  margin-top:64px;
+  padding-top:24px;
+  border-top:1px solid var(--border);
 }
 
 .project-kicker {
