@@ -1,0 +1,155 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <section class="prd">
+      <div class="container">
+        <p class="section-tag">
+          PRD
+        </p>
+
+        <h2>
+          IntelliQuery - AI-powered document intelligence assistant.
+        </h2>
+
+        <p class="prd-intro">
+          A completed product requirements document for a retrieval-augmented generation app that turns
+          uploaded PDFs into an interactive, citation-backed knowledge assistant.
+        </p>
+
+        <div class="prd-meta">
+          <span>Author: Gayatri Gupta</span>
+          <span>Status: Completed</span>
+          <span>Date: July 29, 2026</span>
+          <span>Target Release: NA</span>
+        </div>
+
+        <div class="prd-spec">
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">01 · Product Overview</span>
+            <p>
+              IntelliQuery helps students, researchers, employees, and technical teams find information
+              in long PDFs through natural-language questions instead of manual scanning or brittle keyword search.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">02 · AI Value Proposition</span>
+            <p>
+              The product uses a RAG architecture with Llama 3.2 to retrieve semantically relevant passages,
+              generate grounded answers, and provide citations and page references for transparency.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">03 · User Workflow</span>
+            <p>
+              Users upload one or more PDFs, the system extracts and chunks the text, stores embeddings in ChromaDB,
+              and then answers questions with document-grounded responses.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">04 · Technical Architecture</span>
+            <p>
+              The system combines PDF processing, semantic chunking, embedding generation, vector search,
+              and Llama 3.2 inference through Ollama to deliver a modular and scalable experience.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">05 · Performance Targets</span>
+            <p>
+              The target experience includes under 5 seconds for typical PDF processing, under 2 seconds per document
+              for embedding generation, under 500 ms for retrieval, and 3–5 seconds for end-to-end answers.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">06 · Guardrails & Safety</span>
+            <p>
+              The product is designed to reject unsupported files, avoid fabricated answers, handle unsupported queries,
+              and provide graceful fallback messages when relevant information cannot be found.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+
+<style>
+.prd {
+  padding: 120px 0 80px;
+}
+
+.prd-intro {
+  color:var(--text-secondary);
+  max-width:760px;
+  font-size:1.05rem;
+  margin-bottom:28px;
+}
+
+.prd-meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:40px;
+}
+
+.prd-meta span {
+  border:1px solid var(--border);
+  color:var(--text-secondary);
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:0.9rem;
+}
+
+.prd-spec {
+  border-top:1px solid var(--border);
+}
+
+.prd-spec-row {
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:40px;
+  padding:26px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.prd-spec-label {
+  color:var(--accent);
+  font-weight:700;
+  font-size:0.95rem;
+  letter-spacing:0.02em;
+}
+
+.prd-spec-row p {
+  color:var(--text-secondary);
+  max-width:640px;
+}
+
+@media(max-width:800px){
+
+  .prd {
+    padding:100px 0 60px;
+  }
+
+  .prd-spec-row{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .prd {
+    padding:90px 0 60px;
+  }
+
+}
+</style>

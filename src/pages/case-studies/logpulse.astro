@@ -1,0 +1,317 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <section class="case-study">
+      <div class="container case-study-layout">
+        <aside class="case-study-aside">
+          <p class="section-tag">
+            Case Study
+          </p>
+
+          <h2>
+            Automating the weekly status report with a zero-data-leakage Chrome extension.
+          </h2>
+
+          <p>
+            How I designed and built LogPulse, a privacy-first AI tool
+            that turns GitHub, Jira, and Google Calendar activity into a concise weekly
+            update using a local LLM.
+          </p>
+
+          <div class="impact-strip">
+            <div>
+              <strong>~5 sec</strong>
+              <span>summary generation</span>
+            </div>
+            <div>
+              <strong>$0</strong>
+              <span>cloud LLM fees</span>
+            </div>
+            <div>
+              <strong>100%</strong>
+              <span>local data processing</span>
+            </div>
+          </div>
+        </aside>
+
+        <article class="case-study-story">
+          <section>
+            <span>01</span>
+            <h3>Executive Summary</h3>
+            <p>
+              Engineers spend hours every Friday gathering scattered commit logs,
+              Jira tickets, and calendar events just to write a weekly status update.
+              The process is tedious, easy to under-report, and risky when internal
+              work is pasted into cloud-based LLMs.
+            </p>
+            <p>
+              LogPulse solves this by aggregating activity across
+              GitHub, Jira, and Google Calendar, truncating and sanitizing the data
+              client-side, and routing it through a local LLM. The result is a precise
+              4-6 bullet weekly summary in under 5 seconds, with no external API fees
+              or server overhead.
+            </p>
+          </section>
+
+          <section>
+            <span>02</span>
+            <h3>The Problem</h3>
+            <p>
+              Writing weekly status reports, standup blurbs, and 1:1 summaries is a
+              recurring high-friction workflow for software engineers and technical leads.
+              Work is fragmented across Git commit history, Jira task updates, and
+              Google Calendar meetings, forcing developers to context-switch across
+              dashboards for 30-45 minutes every Friday.
+            </p>
+
+            <ul>
+              <li>Manual log scraping causes developers to miss bug fixes, PR reviews, or technical discussions.</li>
+              <li>Cloud LLM copy-pasting creates privacy and NDA risks for proprietary work.</li>
+              <li>Raw API exports create payload bloat, token overflow, slow generation, and hallucination risk.</li>
+            </ul>
+          </section>
+
+          <section>
+            <span>03</span>
+            <h3>The Goal</h3>
+            <p>
+              Build a lightweight Chrome extension that fetches activity across GitHub,
+              Jira, and Google Calendar, sanitizes and compresses the payload on the
+              client, and generates a structured 4-6 bullet weekly summary via a local
+              LLM in under 5 seconds, with zero data leaving the developer's machine.
+            </p>
+          </section>
+
+          <section>
+            <span>04</span>
+            <h3>The AI Solution</h3>
+            <p>
+              The solution uses a zero-data-leakage pipeline powered by a lightweight
+              local LLM. Instead of relying on cloud infrastructure or expensive
+              fine-tuning, the architecture centers on client-side context engineering.
+            </p>
+
+            <div class="flow-line">
+              <span>Fetch</span>
+              <span>Sanitize</span>
+              <span>Compress</span>
+              <span>Summarize locally</span>
+            </div>
+          </section>
+
+          <section>
+            <span>05</span>
+            <h3>Data & Context Strategy</h3>
+            <p>
+              The model avoids offline training and custom fine-tuning. It uses dynamic
+              zero-shot context retrieval and clean, structured in-context learning.
+            </p>
+
+            <dl>
+              <div>
+                <dt>GitHub</dt>
+                <dd>First-line commit headers from PushEvent and PR titles from PullRequestEvent over the last 7 days.</dd>
+              </div>
+              <div>
+                <dt>Jira</dt>
+                <dd>Key, Summary, and Status fields for issues updated in the last 7 days.</dd>
+              </div>
+              <div>
+                <dt>Calendar</dt>
+                <dd>Event summaries and titles, filtered to exclude declined invitations.</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section>
+            <span>06</span>
+            <h3>Time, Cost & Privacy Impact</h3>
+            <p>
+              The extension cuts status prep from 20-30 minutes to a single click,
+              routes inference through a local LLM for $0 API cost, and eliminates
+              data-leakage risk by keeping proprietary work fully on-device.
+            </p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+
+<style>
+.case-study {
+  padding:120px 0 80px;
+}
+
+.case-study-layout {
+  display:grid;
+  grid-template-columns:minmax(280px, 0.9fr) minmax(0, 1.35fr);
+  gap:72px;
+  align-items:start;
+}
+
+.case-study-aside {
+  position:sticky;
+  top:110px;
+}
+
+.case-study-aside h2 {
+  margin-bottom:22px;
+}
+
+.case-study-aside p {
+  color:var(--text-secondary);
+  max-width:520px;
+}
+
+.impact-strip {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  border:1px solid var(--border);
+  margin-top:36px;
+}
+
+.impact-strip div {
+  padding:20px;
+  border-right:1px solid var(--border);
+}
+
+.impact-strip div:last-child {
+  border-right:0;
+}
+
+.impact-strip strong {
+  display:block;
+  font-size:1.5rem;
+  color:var(--text-primary);
+  margin-bottom:6px;
+}
+
+.impact-strip span {
+  color:var(--text-secondary);
+  font-size:0.85rem;
+}
+
+.case-study-story {
+  border-left:1px solid var(--border);
+  padding-left:40px;
+}
+
+.case-study-story section {
+  position:relative;
+  padding-bottom:56px;
+}
+
+.case-study-story section:last-child {
+  padding-bottom:0;
+}
+
+.case-study-story section > span {
+  display:inline-block;
+  color:var(--accent);
+  font-size:0.85rem;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.case-study-story h3 {
+  font-size:1.45rem;
+  margin-bottom:14px;
+}
+
+.case-study-story p {
+  color:var(--text-secondary);
+  margin-bottom:16px;
+}
+
+.case-study-story ul {
+  color:var(--text-secondary);
+  padding-left:18px;
+}
+
+.case-study-story li {
+  margin-bottom:10px;
+}
+
+.flow-line {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+}
+
+.flow-line span {
+  border:1px solid var(--border);
+  padding:10px 14px;
+  color:var(--text-primary);
+  background:var(--bg-secondary);
+}
+
+.case-study-story dl {
+  display:grid;
+  gap:18px;
+  margin-top:22px;
+}
+
+.case-study-story dl div {
+  border-top:1px solid var(--border);
+  padding-top:16px;
+}
+
+.case-study-story dt {
+  color:var(--text-primary);
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.case-study-story dd {
+  color:var(--text-secondary);
+}
+
+@media(max-width:800px){
+
+  .case-study {
+    padding:100px 0 60px;
+  }
+
+  .case-study-layout {
+    grid-template-columns:1fr;
+    gap:44px;
+  }
+
+  .case-study-aside {
+    position:static;
+  }
+
+  .impact-strip {
+    grid-template-columns:1fr;
+  }
+
+  .impact-strip div {
+    border-right:0;
+    border-bottom:1px solid var(--border);
+  }
+
+  .impact-strip div:last-child {
+    border-bottom:0;
+  }
+
+  .case-study-story {
+    border-left:0;
+    padding-left:0;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .case-study {
+    padding:90px 0 60px;
+  }
+
+}
+</style>

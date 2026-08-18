@@ -35,3 +35,22 @@ a {
   width: min(1120px, 90%);
   margin: auto;
 }
+
+.section-tag {
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+}

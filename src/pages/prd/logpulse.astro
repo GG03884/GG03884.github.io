@@ -1,0 +1,180 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <section class="prd">
+      <div class="container">
+        <p class="section-tag">
+          PRD
+        </p>
+
+        <h2>
+          LogPulse - AI-powered weekly work summary generator.
+        </h2>
+
+        <p class="prd-intro">
+          A completed product requirements document for a privacy-first Chrome extension
+          that turns GitHub, Jira, and calendar activity into a concise weekly progress report.
+        </p>
+
+        <div class="prd-meta">
+          <span>Author: Gayatri Gupta</span>
+          <span>Status: Completed</span>
+          <span>Date: July 24, 2026</span>
+          <span>Target Release: NA</span>
+        </div>
+
+        <div class="prd-spec">
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">01 · User Problem</span>
+            <p>
+              Employees are expected to share weekly progress updates, but remembering
+              every contribution across GitHub pull requests, commits, Jira stories,
+              meetings, and day-to-day work is difficult. Important work can be missed,
+              making it harder to accurately showcase impact.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">02 · AI Value Proposition</span>
+            <p>
+              LogPulse uses a foundation model to transform raw activity data into a
+              concise, human-readable weekly summary. The LLM identifies significant
+              contributions, groups related work, and generates structured bullet points
+              that employees can quickly review and share.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">03 · Persona & Workflow</span>
+            <p>
+              Built for software developers and engineering leads. The Chrome extension
+              collects weekly activity from connected tools, summarizes the most relevant
+              work locally, and presents an editable status update for the user.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">04 · Business Success Metric</span>
+            <p>
+              Reduce weekly status update preparation from 20-30 minutes of manual
+              compilation to approximately 15 seconds of automated summarization.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">05 · Technical Architecture</span>
+            <p>
+              The model strategy is prompt engineering with a local LLM. Data sources
+              include GitHub, Jira, and employee calendar activity. All API fetching,
+              parsing, context truncation, and inference occur on the local client machine.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">06 · Privacy Strategy</span>
+            <p>
+              LogPulse is designed for zero remote data transmission. Raw employee
+              activity never leaves the client machine, preserving privacy while enabling
+              offline-friendly summarization.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">07 · Model Evaluation</span>
+            <p>
+              Minimum viable performance requires at least 95% fact-recall precision,
+              less than 1% hallucinated facts, strict zero fabrication, end-to-end latency
+              under 5 seconds, and low or no operating cost.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">08 · Fallback UX</span>
+            <p>
+              Timeout state: "Request timed out." Low confidence state: "Model returned
+              an unexpected output format. Displaying formatted raw activity log below."
+              API failure state: "Failed to fetch."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+
+<style>
+.prd {
+  padding: 120px 0 80px;
+}
+
+.prd-intro {
+  color:var(--text-secondary);
+  max-width:760px;
+  font-size:1.05rem;
+  margin-bottom:28px;
+}
+
+.prd-meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:40px;
+}
+
+.prd-meta span {
+  border:1px solid var(--border);
+  color:var(--text-secondary);
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:0.9rem;
+}
+
+.prd-spec {
+  border-top:1px solid var(--border);
+}
+
+.prd-spec-row {
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:40px;
+  padding:26px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.prd-spec-label {
+  color:var(--accent);
+  font-weight:700;
+  font-size:0.95rem;
+  letter-spacing:0.02em;
+}
+
+.prd-spec-row p {
+  color:var(--text-secondary);
+  max-width:640px;
+}
+
+@media(max-width:800px){
+
+  .prd {
+    padding:100px 0 60px;
+  }
+
+  .prd-spec-row{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .prd {
+    padding:90px 0 60px;
+  }
+
+}
+</style>

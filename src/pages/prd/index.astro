@@ -1,0 +1,106 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <section class="listing">
+      <div class="container">
+        <p class="section-tag">
+          PRD
+        </p>
+
+        <h2>
+          Completed product requirements documents for each build.
+        </h2>
+
+        <div class="listing-grid">
+          <a href="/prd/logpulse" class="listing-card">
+            <span class="listing-kicker">PRD</span>
+            <h3>LogPulse</h3>
+            <p>
+              AI-powered weekly work summary generator.
+            </p>
+          </a>
+
+          <a href="/prd/intelliquery" class="listing-card">
+            <span class="listing-kicker">PRD</span>
+            <h3>IntelliQuery</h3>
+            <p>
+              AI-powered document intelligence assistant.
+            </p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+
+<style>
+.listing {
+  padding:120px 0 120px;
+}
+
+.listing h2 {
+  font-size:2.5rem;
+  max-width:800px;
+  margin-bottom:60px;
+}
+
+.listing-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:32px;
+}
+
+.listing-card {
+  display:block;
+  background:var(--bg-secondary);
+  border:1px solid var(--border);
+  padding:32px;
+  border-radius:20px;
+  transition:border-color 0.2s ease;
+}
+
+.listing-card:hover {
+  border-color:var(--accent);
+}
+
+.listing-kicker {
+  color:var(--accent);
+  font-weight:700;
+  font-size:0.9rem;
+  display:block;
+  margin-bottom:14px;
+}
+
+.listing-card h3 {
+  font-size:1.4rem;
+  margin-bottom:12px;
+}
+
+.listing-card p {
+  color:var(--text-secondary);
+}
+
+@media(max-width:800px){
+
+  .listing {
+    padding:100px 0 80px;
+  }
+
+  .listing-grid {
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .listing {
+    padding:90px 0 60px;
+  }
+
+}
+</style>

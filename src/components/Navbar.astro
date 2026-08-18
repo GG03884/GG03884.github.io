@@ -5,12 +5,21 @@
       Gayatri Gupta
     </a>
 
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+    <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
     <div class="links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#case-studies">Case Studies</a>
-      <a href="#prd">PRD</a>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/experience">Experience</a>
+      <a href="/projects">Projects</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/prd">PRD</a>
     </div>
 
   </div>
@@ -32,6 +41,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .logo {
@@ -50,11 +60,69 @@ nav {
   color: white;
 }
 
+.nav-toggle {
+  display: none;
+}
+
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.nav-burger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text-primary);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
 
 @media(max-width:900px){
 
 .links{
- display:none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: rgba(5,5,5,0.97);
+  border-top: 1px solid var(--border);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+
+.links a {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-burger {
+  display: flex;
+}
+
+.nav-toggle:checked ~ .links {
+  max-height: 400px;
+}
+
+.nav-toggle:checked ~ .nav-burger span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle:checked ~ .nav-burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle:checked ~ .nav-burger span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 }

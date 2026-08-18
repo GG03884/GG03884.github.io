@@ -1,0 +1,311 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <section class="case-study">
+      <div class="container case-study-layout">
+        <aside class="case-study-aside">
+          <p class="section-tag">
+            Case Study
+          </p>
+
+          <h2>
+            IntelliQuery: An AI-powered document intelligence assistant for accurate knowledge retrieval.
+          </h2>
+
+          <p>
+            How I built a retrieval-augmented generation app that turns static PDFs into an interactive
+            knowledge assistant with grounded answers, source citations, and fast semantic search.
+          </p>
+
+          <div class="impact-strip">
+            <div>
+              <strong>&lt;5 sec</strong>
+              <span>PDF indexing</span>
+            </div>
+            <div>
+              <strong>3–5 sec</strong>
+              <span>response generation</span>
+            </div>
+            <div>
+              <strong>100%</strong>
+              <span>document-grounded answers</span>
+            </div>
+          </div>
+        </aside>
+
+        <article class="case-study-story">
+          <section>
+            <span>01</span>
+            <h3>Executive Summary</h3>
+            <p>
+              IntelliQuery transforms static PDF documents into a conversational knowledge assistant.
+              Users can upload one or more documents, ask natural-language questions, and receive
+              accurate answers grounded in the uploaded content with source citations for verification.
+            </p>
+            <p>
+              The product combines semantic retrieval, local embeddings, and a large language model
+              to make information discovery faster and more intuitive while reducing the need for
+              manual document scanning.
+            </p>
+          </section>
+
+          <section>
+            <span>02</span>
+            <h3>The Problem</h3>
+            <p>
+              Teams and individuals often rely on long PDFs such as policies, handbooks, technical docs,
+              and research papers to find critical information. Traditional keyword search is slow,
+              brittle, and often misses contextually relevant answers.
+            </p>
+
+            <ul>
+              <li>Manual browsing through long documents wastes time and creates repetitive effort.</li>
+              <li>Keyword search often returns irrelevant results or misses answers expressed differently.</li>
+              <li>Users need trustworthy responses that can be verified against the original document.</li>
+            </ul>
+          </section>
+
+          <section>
+            <span>03</span>
+            <h3>The Goal</h3>
+            <p>
+              Build an intelligent document assistant that allows users to ask questions naturally and
+              receive context-aware answers grounded solely in the uploaded documents, with transparent
+              citations and a smooth experience for multi-document workflows.
+            </p>
+          </section>
+
+          <section>
+            <span>04</span>
+            <h3>The AI Solution</h3>
+            <p>
+              IntelliQuery uses a retrieval-augmented generation pipeline. Uploaded PDFs are extracted,
+              chunked, embedded, and indexed in ChromaDB, then queried semantically to find the most
+              relevant passages before generating a response with Llama 3.2 through Ollama.
+            </p>
+
+            <div class="flow-line">
+              <span>Upload PDFs</span>
+              <span>Extract text</span>
+              <span>Embed & index</span>
+              <span>Retrieve & answer</span>
+            </div>
+          </section>
+
+          <section>
+            <span>05</span>
+            <h3>Architecture & Stack</h3>
+            <p>
+              The application was designed as a modular, production-ready system that separates ingestion,
+              retrieval, and generation layers while keeping the experience lightweight and intuitive.
+            </p>
+
+            <dl>
+              <div>
+                <dt>Frontend</dt>
+                <dd>React, TypeScript, Vite, and Tailwind CSS for a modern chat-style experience.</dd>
+              </div>
+              <div>
+                <dt>Backend</dt>
+                <dd>Python and FastAPI for document processing, indexing, and query orchestration.</dd>
+              </div>
+              <div>
+                <dt>AI Layer</dt>
+                <dd>Llama 3.2 via Ollama, Nomic Embed Text, PyMuPDF, and vector similarity search.</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section>
+            <span>06</span>
+            <h3>Results & Impact</h3>
+            <p>
+              The project demonstrated how RAG can make knowledge retrieval more accessible, trustworthy,
+              and efficient. It reduced manual search time from minutes to seconds, improved answer
+              grounding through retrieval-based context, and laid the foundation for future expansion
+              into OCR, hybrid search, reranking, and conversation memory.
+            </p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+
+<style>
+.case-study {
+  padding:120px 0 80px;
+}
+
+.case-study-layout {
+  display:grid;
+  grid-template-columns:minmax(280px, 0.9fr) minmax(0, 1.35fr);
+  gap:72px;
+  align-items:start;
+}
+
+.case-study-aside {
+  position:sticky;
+  top:110px;
+}
+
+.case-study-aside h2 {
+  margin-bottom:22px;
+}
+
+.case-study-aside p {
+  color:var(--text-secondary);
+  max-width:520px;
+}
+
+.impact-strip {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  border:1px solid var(--border);
+  margin-top:36px;
+}
+
+.impact-strip div {
+  padding:20px;
+  border-right:1px solid var(--border);
+}
+
+.impact-strip div:last-child {
+  border-right:0;
+}
+
+.impact-strip strong {
+  display:block;
+  font-size:1.5rem;
+  color:var(--text-primary);
+  margin-bottom:6px;
+}
+
+.impact-strip span {
+  color:var(--text-secondary);
+  font-size:0.85rem;
+}
+
+.case-study-story {
+  border-left:1px solid var(--border);
+  padding-left:40px;
+}
+
+.case-study-story section {
+  position:relative;
+  padding-bottom:56px;
+}
+
+.case-study-story section:last-child {
+  padding-bottom:0;
+}
+
+.case-study-story section > span {
+  display:inline-block;
+  color:var(--accent);
+  font-size:0.85rem;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.case-study-story h3 {
+  font-size:1.45rem;
+  margin-bottom:14px;
+}
+
+.case-study-story p {
+  color:var(--text-secondary);
+  margin-bottom:16px;
+}
+
+.case-study-story ul {
+  color:var(--text-secondary);
+  padding-left:18px;
+}
+
+.case-study-story li {
+  margin-bottom:10px;
+}
+
+.flow-line {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+}
+
+.flow-line span {
+  border:1px solid var(--border);
+  padding:10px 14px;
+  color:var(--text-primary);
+  background:var(--bg-secondary);
+}
+
+.case-study-story dl {
+  display:grid;
+  gap:18px;
+  margin-top:22px;
+}
+
+.case-study-story dl div {
+  border-top:1px solid var(--border);
+  padding-top:16px;
+}
+
+.case-study-story dt {
+  color:var(--text-primary);
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.case-study-story dd {
+  color:var(--text-secondary);
+}
+
+@media(max-width:800px){
+
+  .case-study {
+    padding:100px 0 60px;
+  }
+
+  .case-study-layout {
+    grid-template-columns:1fr;
+    gap:44px;
+  }
+
+  .case-study-aside {
+    position:static;
+  }
+
+  .impact-strip {
+    grid-template-columns:1fr;
+  }
+
+  .impact-strip div {
+    border-right:0;
+    border-bottom:1px solid var(--border);
+  }
+
+  .impact-strip div:last-child {
+    border-bottom:0;
+  }
+
+  .case-study-story {
+    border-left:0;
+    padding-left:0;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .case-study {
+    padding:90px 0 60px;
+  }
+
+}
+</style>

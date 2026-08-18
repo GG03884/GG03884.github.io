@@ -1,0 +1,174 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <section class="experience">
+      <div class="container">
+        <p class="section-tag">
+          Experience
+        </p>
+
+        <h2>
+          Product and engineering experience shaped by strategy, execution, and user impact.
+        </h2>
+
+        <div class="experience-list">
+          <div class="experience-item">
+            <div class="experience-rail">
+              <span class="experience-dot"></span>
+              <span class="experience-line"></span>
+            </div>
+            <div class="experience-body">
+              <span class="experience-date">Jul 2025 – May 2026</span>
+              <h3>Software Developer, IBM ZCodeScan</h3>
+              <p>
+                • Contributed to the GA launch of IBM ZCodeScan, an AI-enhanced static code analysis tool for
+                COBOL and PL/I, expanding its rule library by 69 rules and helping make the product available
+                to over 193,000 developers through the IBM Z Open Editor extension.
+                <br />
+                • Partnered with Product Managers and Designers to address customer pain points and built
+                AI-powered developer workflows and CI/CD enhancements that saved developers 4–8 hours per
+                week and helped reduce downstream production bugs by up to 15×.
+              </p>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-rail">
+              <span class="experience-dot"></span>
+              <span class="experience-line"></span>
+            </div>
+            <div class="experience-body">
+              <span class="experience-date">Jan 2025 – Jul 2025</span>
+              <h3>Software Developer Intern, IBM ZCodeScan</h3>
+              <p>
+                • Contributed as part of a four-member product engineering team, helping shape and deliver
+                improvements across detection rules, static analysis workflows, CLI capabilities, testing,
+                and reporting.
+                <br />
+                • Focused on translating product needs into reliable engineering solutions, validating
+                workflows against user expectations, and improving the overall developer experience.
+                <br />
+                • Built extension prototypes to explore emerging use cases and contributed to product
+                discussions around future AI-assisted capabilities, helping connect technical possibilities
+                with potential user value.
+              </p>
+            </div>
+          </div>
+
+          <div class="experience-item">
+            <div class="experience-rail">
+              <span class="experience-dot"></span>
+            </div>
+            <div class="experience-body">
+              <span class="experience-date">May 2024 – Jul 2024</span>
+              <h3>Software Development Engineer Intern, Amazon</h3>
+              <p>
+                • Enhanced reconciliation workflows by building system alerts to detect financial irregularities
+                and stale configurations, enabling business teams to proactively identify issues and update
+                rules from their end.
+                <br />
+                • Worked across data pipelines and ETL processes to optimize large-scale data processing.
+                <br />
+                • Partnered with cross-functional stakeholders to translate business needs into product
+                requirements and priorities, and documented the journey from proof of concept to MVP.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+
+<style>
+.experience {
+  padding: 120px 0 80px;
+}
+
+.experience-list {
+  display:flex;
+  flex-direction:column;
+}
+
+.experience-item {
+  display:grid;
+  grid-template-columns:24px 1fr;
+  gap:32px;
+}
+
+.experience-rail {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.experience-dot {
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:var(--bg-primary);
+  border:3px solid var(--accent);
+  flex-shrink:0;
+  margin-top:6px;
+}
+
+.experience-line {
+  flex:1;
+  width:1px;
+  background:var(--border);
+  margin-top:6px;
+}
+
+.experience-body {
+  padding-bottom:48px;
+}
+
+.experience-date {
+  display:inline-block;
+  color:var(--accent);
+  font-size:0.9rem;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.experience-body h3 {
+  font-size:1.25rem;
+  margin-bottom:14px;
+}
+
+.experience-body p {
+  color:var(--text-secondary);
+  max-width:680px;
+  line-height:1.9;
+}
+
+@media(max-width:800px){
+
+  .experience {
+    padding:100px 0 60px;
+  }
+
+  .experience-item {
+    grid-template-columns:16px 1fr;
+    gap:18px;
+  }
+
+  .experience-dot {
+    width:10px;
+    height:10px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .experience {
+    padding:90px 0 60px;
+  }
+
+}
+</style>
