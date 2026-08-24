@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import dineWiseDemo from "../videos/GAYATRI GUPTA DEMO (2).mp4";
 import logPulseDemo from "../videos/Recording 2026-07-26 134350.mp4";
 import videoProjectA from "../videos/Video Project A.mp4";
 ---
@@ -11,6 +12,46 @@ import videoProjectA from "../videos/Video Project A.mp4";
         <p class="section-tag">
           Projects
         </p>
+
+        <div class="project-showcase">
+          <div class="project-copy">
+            <p class="project-kicker">
+              Featured Build
+            </p>
+
+            <h2>
+              DineWise
+            </h2>
+
+            <p>
+              A voice-first AI concierge that transforms natural-language dining
+              preferences into personalized restaurant recommendations and
+              real-time table reservations through Swiggy Dineout MCP.
+            </p>
+
+            <div class="project-metrics">
+              <span>Voice-first</span>
+              <span>Real-time availability</span>
+              <span>Swiggy Dineout MCP</span>
+            </div>
+
+            <div class="project-actions">
+              <a href="/case-studies/dinewise" class="primary">
+                Read Case Study
+              </a>
+              <a href="/prd/dinewise" class="secondary">
+                View PRD
+              </a>
+            </div>
+          </div>
+
+          <div class="project-demo">
+            <video controls preload="metadata" playsinline>
+              <source src={dineWiseDemo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
 
         <div class="project-showcase">
           <div class="project-copy">

@@ -1,0 +1,402 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <section class="case-study">
+      <div class="container case-study-layout">
+        <aside class="case-study-aside">
+          <p class="section-tag">
+            Case Study
+          </p>
+
+          <h2>
+            A voice-first AI concierge that turns natural-language dining preferences into reservations.
+          </h2>
+
+          <p>
+            How I designed DineWise, a conversational AI agent that transforms the way people
+            discover and book restaurants through Swiggy Dineout.
+          </p>
+
+          <div class="impact-strip">
+            <div>
+              <strong>Voice-first</strong>
+              <span>conversational interaction</span>
+            </div>
+            <div>
+              <strong>Top 3</strong>
+              <span>matches spoken, not 20+</span>
+            </div>
+            <div>
+              <strong>Real-time</strong>
+              <span>Dineout availability & booking</span>
+            </div>
+          </div>
+        </aside>
+
+        <article class="case-study-story">
+          <section>
+            <span>01</span>
+            <h3>Overview</h3>
+            <p>
+              DineWise is a voice-first AI concierge that transforms the way people discover
+              and book restaurants. Instead of navigating multiple filters for cuisine, budget,
+              ambience, and availability, users simply describe the experience they want in
+              natural language.
+            </p>
+            <blockquote>
+              "I'm meeting an old friend this weekend. We want somewhere relaxed where we can
+              actually talk, with good food and a budget of around ₹1,500 for two."
+            </blockquote>
+            <p>
+              The AI interprets the user's intent, searches restaurants through Swiggy Dineout
+              MCP, checks real-time availability, and completes the reservation through a
+              conversational experience.
+            </p>
+          </section>
+
+          <section>
+            <span>02</span>
+            <h3>The Problem</h3>
+            <p>
+              Restaurant booking apps are optimized around filters, but people rarely think in
+              filters. Users usually know:
+            </p>
+
+            <ul>
+              <li>The occasion (date, family dinner, catch-up).</li>
+              <li>The atmosphere they want.</li>
+              <li>Their budget.</li>
+              <li>Preferred timing.</li>
+            </ul>
+
+            <p>
+              What they don't know is which restaurant best fits those constraints. The friction
+              isn't booking a table - it's making the decision.
+            </p>
+          </section>
+
+          <section>
+            <span>03</span>
+            <h3>The Solution</h3>
+            <p>
+              DineWise acts as a conversational decision-making layer on top of Swiggy Dineout.
+              The core innovation is not voice itself - it's the ability to convert unstructured
+              human intent into structured restaurant recommendations.
+            </p>
+          </section>
+
+          <section>
+            <span>04</span>
+            <h3>User Journey</h3>
+
+            <dl>
+              <div>
+                <dt>Express intent naturally</dt>
+                <dd>"I'm meeting an old friend this weekend…"</dd>
+              </div>
+              <div>
+                <dt>AI understands context</dt>
+                <dd>Extracts occasion, ambience, budget, party size, and timing.</dd>
+              </div>
+              <div>
+                <dt>Search Dineout</dt>
+                <dd>Retrieves restaurants, offers, and available reservation slots.</dd>
+              </div>
+              <div>
+                <dt>Recommend & reserve</dt>
+                <dd>Explains why a restaurant matches before booking with confirmation.</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section>
+            <span>05</span>
+            <h3>Designing for Voice, Not Chat</h3>
+            <p>
+              A key product decision was optimizing responses specifically for voice interactions.
+            </p>
+
+            <dl>
+              <div>
+                <dt>Traditional search</dt>
+                <dd>Displays 20+ restaurants and expects users to compare filters manually.</dd>
+              </div>
+              <div>
+                <dt>DineWise</dt>
+                <dd>Speaks only the top 3 matches and explains why the best option fits the user's intent.</dd>
+              </div>
+            </dl>
+
+            <p>
+              This reduces cognitive load and makes the interaction feel like talking to a
+              knowledgeable concierge rather than querying a database.
+            </p>
+          </section>
+
+          <section>
+            <span>06</span>
+            <h3>Key Product Decisions</h3>
+
+            <dl>
+              <div>
+                <dt>Conversational constraint extraction</dt>
+                <dd>
+                  The agent identifies implicit preferences like "somewhere we can actually talk"
+                  and maps them to ambience rather than treating it as a keyword search.
+                </dd>
+              </div>
+              <div>
+                <dt>Re-planning instead of restarting</dt>
+                <dd>
+                  If the user says "Actually, we'd prefer outdoor seating," the agent preserves
+                  budget, party size, and timing while updating only the changed preference.
+                </dd>
+              </div>
+              <div>
+                <dt>Transparent recommendations</dt>
+                <dd>
+                  Every recommendation includes 2–3 factual reasons (budget match, ambience,
+                  availability) instead of exposing internal reasoning.
+                </dd>
+              </div>
+            </dl>
+          </section>
+
+          <section>
+            <span>07</span>
+            <h3>Technology</h3>
+
+            <dl>
+              <div>
+                <dt>AI Agent</dt>
+                <dd>Llama 3.2 (local via Ollama).</dd>
+              </div>
+              <div>
+                <dt>Voice</dt>
+                <dd>Browser Speech-to-Text + Text-to-Speech.</dd>
+              </div>
+              <div>
+                <dt>Commerce Layer</dt>
+                <dd>Swiggy Dineout MCP.</dd>
+              </div>
+              <div>
+                <dt>Frontend</dt>
+                <dd>React, TypeScript, and Tailwind CSS.</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section>
+            <span>08</span>
+            <h3>Outcome</h3>
+            <p>
+              DineWise demonstrates how AI agents can improve decision-making in commerce, not
+              just automate transactions. Rather than replacing restaurant search, it reimagines
+              the discovery experience as a natural conversation that understands intent, adapts
+              to changing preferences, and completes reservations through Swiggy's Dineout
+              ecosystem.
+            </p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+
+<style>
+.case-study {
+  padding:120px 0 80px;
+}
+
+.case-study-layout {
+  display:grid;
+  grid-template-columns:minmax(280px, 0.9fr) minmax(0, 1.35fr);
+  gap:72px;
+  align-items:start;
+}
+
+.case-study-aside {
+  position:sticky;
+  top:110px;
+}
+
+.case-study-aside h2 {
+  margin-bottom:22px;
+}
+
+.case-study-aside p {
+  color:var(--text-secondary);
+  max-width:520px;
+}
+
+.impact-strip {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  border:1px solid var(--border);
+  margin-top:36px;
+}
+
+.impact-strip div {
+  padding:20px;
+  border-right:1px solid var(--border);
+}
+
+.impact-strip div:last-child {
+  border-right:0;
+}
+
+.impact-strip strong {
+  display:block;
+  font-size:1.5rem;
+  color:var(--text-primary);
+  margin-bottom:6px;
+}
+
+.impact-strip span {
+  color:var(--text-secondary);
+  font-size:0.85rem;
+}
+
+.case-study-story {
+  border-left:1px solid var(--border);
+  padding-left:40px;
+}
+
+.case-study-story section {
+  position:relative;
+  padding-bottom:56px;
+}
+
+.case-study-story section:last-child {
+  padding-bottom:0;
+}
+
+.case-study-story section > span {
+  display:inline-block;
+  color:var(--accent);
+  font-size:0.85rem;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.case-study-story h3 {
+  font-size:1.45rem;
+  margin-bottom:14px;
+}
+
+.case-study-story p {
+  color:var(--text-secondary);
+  margin-bottom:16px;
+}
+
+.case-study-story ul {
+  color:var(--text-secondary);
+  padding-left:18px;
+}
+
+.case-study-story li {
+  margin-bottom:10px;
+}
+
+.case-study-story blockquote {
+  border-left:3px solid var(--accent);
+  padding:4px 0 4px 20px;
+  margin:0 0 16px;
+  color:var(--text-primary);
+  font-style:italic;
+}
+
+.flow-line {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:24px;
+}
+
+.flow-line span {
+  border:1px solid var(--border);
+  padding:10px 14px;
+  color:var(--text-primary);
+  background:var(--bg-secondary);
+}
+
+.case-study-story dl {
+  display:grid;
+  gap:18px;
+  margin-top:22px;
+}
+
+.case-study-story dl div {
+  border-top:1px solid var(--border);
+  padding-top:16px;
+}
+
+.case-study-story dt {
+  color:var(--text-primary);
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.case-study-story dd {
+  color:var(--text-secondary);
+}
+
+@media(max-width:800px){
+
+  .case-study {
+    padding:100px 0 60px;
+  }
+
+  .case-study-layout {
+    grid-template-columns:1fr;
+    gap:44px;
+  }
+
+  .case-study-aside {
+    position:static;
+  }
+
+  .impact-strip {
+    grid-template-columns:1fr;
+  }
+
+  .impact-strip div {
+    border-right:0;
+    border-bottom:1px solid var(--border);
+  }
+
+  .impact-strip div:last-child {
+    border-bottom:0;
+  }
+
+  .case-study-story {
+    border-left:0;
+    padding-left:0;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .case-study {
+    padding:90px 0 60px;
+  }
+
+}
+
+@media(max-height:800px) and (min-width:801px){
+
+  .case-study {
+    padding-top:96px;
+  }
+
+  .case-study-aside {
+    top:96px;
+  }
+
+}
+</style>

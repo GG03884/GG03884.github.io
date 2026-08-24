@@ -46,16 +46,38 @@ import Layout from "../layouts/Layout.astro";
             GitHub
           </a>
 
-          <a href="mailto:gayatri03884@gmail.com" class="secondary">
+          <a href="mailto:gayatri03884@gmail.com" class="secondary" id="email-link">
             Email
           </a>
 
         </div>
 
+        <p class="email-toast" id="email-toast">Email copied: gayatri03884@gmail.com</p>
+
       </div>
     </section>
   </main>
 </Layout>
+
+<script>
+  const emailLink = document.getElementById("email-link");
+  const toast = document.getElementById("email-toast");
+  let toastTimeout: ReturnType<typeof setTimeout>;
+
+  emailLink?.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText("gayatri03884@gmail.com");
+    } catch {
+      // Clipboard API unavailable; mailto link still attempts to open.
+    }
+
+    toast?.classList.add("visible");
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+      toast?.classList.remove("visible");
+    }, 3000);
+  });
+</script>
 
 
 <style>
@@ -122,6 +144,28 @@ h1 {
 
 .secondary {
   border: 1px solid var(--border);
+}
+
+.email-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  transform: translate(-50%, 12px);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+}
+
+.email-toast.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 

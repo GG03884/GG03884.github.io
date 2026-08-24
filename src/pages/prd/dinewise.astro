@@ -1,0 +1,220 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <section class="prd">
+      <div class="container">
+        <p class="section-tag">
+          PRD
+        </p>
+
+        <h2>
+          DineWise - AI Voice Concierge
+        </h2>
+
+        <p class="prd-intro">
+          A completed product requirements document for a voice-first AI agent that turns
+          natural-language dining preferences into personalized restaurant recommendations and
+          real-time reservations through Swiggy Dineout MCP.
+        </p>
+
+        <div class="prd-meta">
+          <span>Author: Gayatri Gupta</span>
+          <span>Status: Completed</span>
+          <span>Program: Swiggy Builders Club</span>
+          <span>Target Release: NA</span>
+        </div>
+
+        <div class="prd-spec">
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">01 · User Problem</span>
+            <p>
+              Restaurant booking apps are built around filters, but users think in experiences.
+              They know the occasion, the atmosphere they want, their budget, and preferred
+              timing - but not which restaurant best satisfies those constraints. The real
+              friction isn't booking a table; it's confidently choosing one.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">02 · AI Value Proposition</span>
+            <p>
+              DineWise is a voice-first AI concierge built on Swiggy Dineout MCP. It transforms
+              natural-language dining intent into personalized restaurant recommendations, checks
+              live availability, and completes reservations through a single conversational
+              experience.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">03 · Target User & Workflow</span>
+            <p>
+              The experience begins with a natural voice conversation, where the user simply
+              describes the kind of dining experience they want. The AI extracts key preferences
+              - including the occasion, ambience, budget, party size, and preferred timing -
+              asks only one clarification when essential, searches Swiggy Dineout for matching
+              restaurants and live availability, and recommends the best option. If the user
+              changes a preference, the AI re-plans the recommendation while preserving the rest
+              of the conversation before completing the reservation with confirmation.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">04 · Success Metric</span>
+            <p>
+              Reduce decision-making friction by replacing manual comparison across 20+
+              restaurant listings with a single natural-language request that surfaces one
+              confident, explainable restaurant recommendation.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">05 · Technical Architecture</span>
+            <ul>
+              <li><strong>AI Agent:</strong> Llama 3.2 (local via Ollama)</li>
+              <li><strong>Commerce Layer:</strong> Swiggy Dineout MCP</li>
+              <li><strong>Voice:</strong> Browser Speech-to-Text & Text-to-Speech</li>
+              <li><strong>Frontend:</strong> React, TypeScript, Tailwind CSS</li>
+            </ul>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">06 · Voice-First Design Principle</span>
+            <p>
+              Voice experiences should reduce cognitive load, not read menus aloud. DineWise
+              recommends at most three restaurants, speaks only the top match by default, and
+              explains why it fits the user's intent instead of listing dozens of options.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">07 · Key Product Decisions</span>
+            <ul>
+              <li>
+                <strong>Intent over filters:</strong> Maps implicit phrases like "somewhere we
+                can actually talk" to ambience rather than keyword search.
+              </li>
+              <li>
+                <strong>Conversational re-planning:</strong> Updates only the modified preference
+                (e.g. outdoor seating or budget) while preserving the rest of the conversation
+                context.
+              </li>
+              <li>
+                <strong>Explainable AI:</strong> Every recommendation includes 2–3 factual
+                reasons such as budget match, ambience, and live table availability.
+              </li>
+            </ul>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">08 · Outcome</span>
+            <p>
+              DineWise demonstrates how AI agents can improve decision-making in commerce by
+              turning restaurant discovery from a filter-based workflow into a natural
+              conversation that understands intent, adapts to changing preferences, and completes
+              reservations through Swiggy Dineout MCP.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+
+<style>
+.prd {
+  padding: 120px 0 80px;
+}
+
+.prd-intro {
+  color:var(--text-secondary);
+  max-width:760px;
+  font-size:1.05rem;
+  margin-bottom:28px;
+}
+
+.prd-meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:40px;
+}
+
+.prd-meta span {
+  border:1px solid var(--border);
+  color:var(--text-secondary);
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:0.9rem;
+}
+
+.prd-spec {
+  border-top:1px solid var(--border);
+}
+
+.prd-spec-row {
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:40px;
+  padding:26px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.prd-spec-label {
+  color:var(--accent);
+  font-weight:700;
+  font-size:0.95rem;
+  letter-spacing:0.02em;
+}
+
+.prd-spec-row p {
+  color:var(--text-secondary);
+  max-width:640px;
+}
+
+.prd-spec-row p + p {
+  margin-top:12px;
+}
+
+.prd-spec-row ul {
+  color:var(--text-secondary);
+  max-width:640px;
+  padding-left:18px;
+}
+
+.prd-spec-row li {
+  margin-bottom:10px;
+}
+
+.prd-spec-row li:last-child {
+  margin-bottom:0;
+}
+
+.prd-spec-row li strong {
+  color:var(--text-primary);
+}
+
+@media(max-width:800px){
+
+  .prd {
+    padding:100px 0 60px;
+  }
+
+  .prd-spec-row{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .prd {
+    padding:90px 0 60px;
+  }
+
+}
+</style>
