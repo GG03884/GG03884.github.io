@@ -1,0 +1,382 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <section class="prd">
+      <div class="container">
+        <p class="section-tag">
+          PRD
+        </p>
+
+        <h2>
+          Finova - Autonomous Finance Operations Agent
+        </h2>
+
+        <p class="prd-intro">
+          A completed product requirements document for an AI agent that automates multi-source
+          financial reconciliation across invoices, payment gateway settlements, and bank
+          statements.
+        </p>
+
+        <div class="prd-meta">
+          <span>Author: Gayatri Gupta</span>
+          <span>Status: Completed</span>
+          <span>Target Release: NA</span>
+        </div>
+
+        <div class="prd-spec">
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">01 · Product Overview</span>
+            <dl class="prd-dl">
+              <div>
+                <dt>Vision</dt>
+                <dd>
+                  Enable finance teams to close the books faster by automating multi-source
+                  financial reconciliation and surfacing only the transactions that require
+                  human attention.
+                </dd>
+              </div>
+              <div>
+                <dt>Problem</dt>
+                <dd>
+                  Finance teams manually reconcile payments across ERP invoices, payment
+                  gateway settlements, and bank statements. Although these records represent
+                  the same business transaction, inconsistent identifiers, delayed settlements,
+                  and varying bank narrations make reconciliation slow, repetitive, and
+                  error-prone.
+                </dd>
+              </div>
+              <div>
+                <dt>Goal</dt>
+                <dd>
+                  Build an AI agent that processes 50+ financial transactions in a single
+                  batch, reports reconciliation accuracy, calculates cash position, and
+                  generates an explainable exception queue.
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">02 · Target Users</span>
+            <div class="prd-table-wrap">
+              <table class="prd-table">
+                <thead>
+                  <tr>
+                    <th>User</th>
+                    <th>Primary Need</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Finance Analyst</td>
+                    <td>Reconcile daily transactions automatically</td>
+                  </tr>
+                  <tr>
+                    <td>Finance Operations Manager</td>
+                    <td>Monitor cash position & settlement status</td>
+                  </tr>
+                  <tr>
+                    <td>Accounting Team</td>
+                    <td>Investigate unresolved financial exceptions</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">03 · User Stories</span>
+            <ul>
+              <li>Upload invoices, gateway transactions, and bank statements for automatic reconciliation.</li>
+              <li>View match rate, cash received, and pending settlements in a single dashboard.</li>
+              <li>Receive AI-generated explanations for delayed settlements, amount mismatches, and duplicate payments.</li>
+              <li>Download audit-ready reconciliation and exception reports.</li>
+            </ul>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">04 · Core Features</span>
+            <dl class="prd-dl">
+              <div>
+                <dt>Batch Reconciliation</dt>
+                <dd>
+                  Processes 50+ transactions across invoices, payment gateway settlements, and
+                  bank statements in one execution.
+                </dd>
+              </div>
+              <div>
+                <dt>Cash Position Dashboard</dt>
+                <dd>
+                  Displays total invoices, auto-matched transactions, match rate, cash received,
+                  pending settlements, and exception count.
+                </dd>
+              </div>
+              <div>
+                <dt>AI Exception Intelligence</dt>
+                <dd>
+                  Classifies unresolved transactions with confidence scores, explanations, and
+                  recommended actions for delayed settlements, missing bank entries, duplicate
+                  payments, and amount mismatches.
+                </dd>
+              </div>
+              <div>
+                <dt>Finance Copilot Chat</dt>
+                <dd>
+                  Answers grounded finance questions such as "Why wasn't INV054 reconciled?",
+                  "Show delayed settlements," "How much cash is pending?" and "Which
+                  transactions require manual review?"
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">05 · AI Design Decisions</span>
+            <p>
+              Finova uses a rule-first, AI-second hybrid architecture to maximize accuracy and
+              explainability. Design Principle: Business rules determine whether transactions
+              match; AI explains only the unresolved exceptions, ensuring every decision remains
+              auditable and grounded.
+            </p>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">06 · End-to-End Workflow</span>
+            <ol>
+              <li>Upload Invoices, Gateway Transactions, and Bank Statement CSVs.</li>
+              <li>Normalize dates, IDs, and financial records.</li>
+              <li>Apply deterministic reconciliation rules.</li>
+              <li>Calculate cash position and reconciliation metrics.</li>
+              <li>Send unresolved transactions to the AI for explanation.</li>
+              <li>Generate KPI dashboard, reconciled report, and exception report.</li>
+            </ol>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">07 · Success Metrics</span>
+            <div class="prd-table-wrap">
+              <table class="prd-table">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>Target</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Transactions processed</td>
+                    <td>50+</td>
+                  </tr>
+                  <tr>
+                    <td>Match rate</td>
+                    <td>80–95%</td>
+                  </tr>
+                  <tr>
+                    <td>Processing time</td>
+                    <td>Under 5 seconds</td>
+                  </tr>
+                  <tr>
+                    <td>AI usage</td>
+                    <td>Exceptions only</td>
+                  </tr>
+                  <tr>
+                    <td>Outputs</td>
+                    <td>Reconciled CSV & Exception CSV</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="prd-spec-row">
+            <span class="prd-spec-label">08 · Tech Stack</span>
+            <div class="prd-table-wrap">
+              <table class="prd-table">
+                <thead>
+                  <tr>
+                    <th>Layer</th>
+                    <th>Technology</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Frontend</td>
+                    <td>React, TypeScript, Tailwind CSS</td>
+                  </tr>
+                  <tr>
+                    <td>Backend</td>
+                    <td>FastAPI</td>
+                  </tr>
+                  <tr>
+                    <td>Data Processing</td>
+                    <td>Pandas</td>
+                  </tr>
+                  <tr>
+                    <td>AI Model</td>
+                    <td>Qwen 3</td>
+                  </tr>
+                  <tr>
+                    <td>Communication</td>
+                    <td>REST APIs</td>
+                  </tr>
+                  <tr>
+                    <td>Reports</td>
+                    <td>CSV Export</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+
+<style>
+.prd {
+  padding: 120px 0 80px;
+}
+
+.prd-intro {
+  color:var(--text-secondary);
+  max-width:760px;
+  font-size:1.05rem;
+  margin-bottom:28px;
+}
+
+.prd-meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:40px;
+}
+
+.prd-meta span {
+  border:1px solid var(--border);
+  color:var(--text-secondary);
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:0.9rem;
+}
+
+.prd-spec {
+  border-top:1px solid var(--border);
+}
+
+.prd-spec-row {
+  display:grid;
+  grid-template-columns:280px 1fr;
+  gap:40px;
+  padding:26px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.prd-spec-label {
+  color:var(--accent);
+  font-weight:700;
+  font-size:0.95rem;
+  letter-spacing:0.02em;
+}
+
+.prd-spec-row p {
+  color:var(--text-secondary);
+  max-width:640px;
+}
+
+.prd-spec-row p + p {
+  margin-top:12px;
+}
+
+.prd-spec-row ul,
+.prd-spec-row ol {
+  color:var(--text-secondary);
+  max-width:640px;
+  padding-left:18px;
+}
+
+.prd-spec-row li {
+  margin-bottom:10px;
+}
+
+.prd-spec-row li:last-child {
+  margin-bottom:0;
+}
+
+.prd-spec-row li strong {
+  color:var(--text-primary);
+}
+
+.prd-dl {
+  display:grid;
+  gap:16px;
+  max-width:640px;
+}
+
+.prd-dl dt {
+  color:var(--text-primary);
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+.prd-dl dd {
+  color:var(--text-secondary);
+}
+
+.prd-table-wrap {
+  overflow-x:auto;
+  max-width:640px;
+  margin-top:8px;
+}
+
+.prd-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.92rem;
+}
+
+.prd-table th,
+.prd-table td {
+  text-align:left;
+  padding:10px 14px;
+  border-bottom:1px solid var(--border);
+  color:var(--text-secondary);
+  white-space:normal;
+}
+
+.prd-table th {
+  color:var(--text-primary);
+  font-weight:700;
+  border-bottom:1px solid var(--accent);
+}
+
+.prd-table td:first-child,
+.prd-table th:first-child {
+  color:var(--text-primary);
+}
+
+@media(max-width:800px){
+
+  .prd {
+    padding:100px 0 60px;
+  }
+
+  .prd-spec-row{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .prd {
+    padding:90px 0 60px;
+  }
+
+}
+</style>

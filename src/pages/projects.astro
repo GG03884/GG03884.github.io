@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import finovaDemo from "../videos/Finova A.mp4";
 import dineWiseDemo from "../videos/GAYATRI GUPTA DEMO (2).mp4";
 import logPulseDemo from "../videos/Recording 2026-07-26 134350.mp4";
 import videoProjectA from "../videos/Video Project A.mp4";
@@ -12,6 +13,46 @@ import videoProjectA from "../videos/Video Project A.mp4";
         <p class="section-tag">
           Projects
         </p>
+
+        <div class="project-showcase">
+          <div class="project-copy">
+            <p class="project-kicker">
+              Featured Build
+            </p>
+
+            <h2>
+              Finova
+            </h2>
+
+            <p>
+              An autonomous finance operations agent that reconciles invoices, payment
+              gateway transactions, and bank statements using a hybrid deterministic + AI
+              pipeline.
+            </p>
+
+            <div class="project-metrics">
+              <span>60+ records per batch</span>
+              <span>Hybrid rule + AI matching</span>
+              <span>Exceptions only</span>
+            </div>
+
+            <div class="project-actions">
+              <a href="/case-studies/finova" class="primary">
+                Read Case Study
+              </a>
+              <a href="/prd/finova" class="secondary">
+                View PRD
+              </a>
+            </div>
+          </div>
+
+          <div class="project-demo">
+            <video controls preload="metadata" playsinline>
+              <source src={finovaDemo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
 
         <div class="project-showcase">
           <div class="project-copy">

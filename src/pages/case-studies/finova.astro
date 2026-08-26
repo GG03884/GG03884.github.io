@@ -1,0 +1,431 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import architectureDiagram from "../../images/ac51f9ee-b71f-4da7-a8eb-a42f6282c64d.svg";
+---
+
+<Layout>
+  <main>
+    <section class="case-study">
+      <div class="container case-study-layout">
+        <aside class="case-study-aside">
+          <p class="section-tag">
+            Case Study
+          </p>
+
+          <h2>
+            An AI agent that closes the daily finance reconciliation loop by verifying invoices, payment gateway settlements, and bank statements.
+          </h2>
+
+          <p>
+            How I designed Finova, an autonomous finance operations agent that reconciles
+            invoices, payment gateway transactions, and bank statements to surface financial
+            truth across disconnected systems.
+          </p>
+
+          <div class="impact-strip">
+            <div>
+              <strong>60+</strong>
+              <span>records reconciled per batch</span>
+            </div>
+            <div>
+              <strong>Hybrid</strong>
+              <span>deterministic matching + AI reasoning</span>
+            </div>
+            <div>
+              <strong>Exceptions only</strong>
+              <span>surfaced for human review</span>
+            </div>
+          </div>
+        </aside>
+
+        <article class="case-study-story">
+          <section>
+            <span>01</span>
+            <h3>Overview</h3>
+            <p>
+              An AI agent that automates multi-source financial reconciliation: invoices,
+              payment gateway transactions, and bank statements are matched deterministically
+              first, and only the transactions the rule engine cannot resolve are sent to a
+              locally running Qwen 3 model (via Ollama) for analysis.
+            </p>
+            <p>
+              Finance teams spend hours manually verifying whether payments recorded in their
+              ERP have actually reached the bank. The challenge isn't generating reports - it's
+              verifying financial truth across disconnected systems.
+            </p>
+          </section>
+
+          <section>
+            <span>02</span>
+            <h3>The Problem</h3>
+            <p>
+              Finance teams reconcile payments across three disconnected systems: ERP invoices,
+              payment gateway settlements, and bank statements. Although these records represent
+              the same business transaction, they often use different identifiers, settlement
+              timings, and narration formats, making manual reconciliation slow and error-prone.
+            </p>
+
+            <p>Common challenges include:</p>
+
+            <ul>
+              <li>Delayed settlements that appear days after the payment gateway reports them.</li>
+              <li>Bank narrations that contain settlement IDs in inconsistent formats.</li>
+              <li>Amount mismatches caused by partial or adjusted payments.</li>
+              <li>Duplicate or orphan transactions requiring manual investigation.</li>
+            </ul>
+
+            <p>
+              As transaction volume grows, finance teams spend hours matching records in
+              spreadsheets instead of resolving genuine exceptions.
+            </p>
+          </section>
+
+          <section>
+            <span>03</span>
+            <h3>The Solution</h3>
+            <p>
+              Finova automates financial reconciliation using a hybrid deterministic + AI
+              pipeline. Instead of sending every transaction to an LLM, the system first applies
+              deterministic business rules to reconcile records with high confidence. Only
+              unresolved or ambiguous transactions are forwarded to a locally running Qwen 3
+              model, which generates grounded explanations and helps finance teams investigate
+              exceptions.
+            </p>
+
+            <p>What Finova delivers:</p>
+
+            <ul>
+              <li>Automatic reconciliation of invoices, gateway transactions, and bank statements.</li>
+              <li>Explainable exception detection for delayed settlements, duplicate payments, and amount mismatches.</li>
+              <li>AI-powered finance assistant that answers questions using only reconciled data.</li>
+              <li>Audit-ready CSV exports for matched records and exceptions.</li>
+            </ul>
+
+            <p>
+              This hybrid approach improves accuracy while keeping AI focused on reasoning
+              rather than deterministic matching.
+            </p>
+          </section>
+
+          <section>
+            <span>04</span>
+            <h3>Architecture Diagram</h3>
+
+            <div class="architecture-diagram">
+              <img src={architectureDiagram.src} alt="Finova system architecture: CSV uploads flow into a deterministic rule engine, splitting into auto-matched reconciled records and unresolved exceptions analyzed by a local Qwen 3 model, feeding a dashboard and CSV reports." />
+            </div>
+
+            <p>Workflow:</p>
+
+            <ol>
+              <li>Users upload invoices, gateway transactions, and bank statements as CSVs.</li>
+              <li>The rule engine reconciles records using deterministic business logic.</li>
+              <li>High-confidence matches are immediately added to the dashboard.</li>
+              <li>Only unresolved exceptions are analyzed by the local Qwen 3 model.</li>
+              <li>Finance teams receive grounded explanations, KPI dashboards, and downloadable audit reports.</li>
+            </ol>
+          </section>
+
+          <section>
+            <span>05</span>
+            <h3>AI Design Decisions</h3>
+            <p>
+              <strong>Why a Hybrid AI Architecture?</strong> A pure LLM approach is unnecessary
+              for deterministic finance operations, while a rule-only system struggles with
+              ambiguous exceptions. Finova combines both to maximize accuracy and
+              explainability.
+            </p>
+
+            <dl>
+              <div>
+                <dt>Deterministic first, AI second</dt>
+                <dd>
+                  Order IDs, amounts, and settlement dates are objective facts. These are
+                  resolved using business rules before invoking the LLM, reducing unnecessary
+                  AI usage and preventing false matches.
+                </dd>
+              </div>
+              <div>
+                <dt>Grounded responses only</dt>
+                <dd>
+                  The AI Finance Chat never answers from general knowledge. It receives only
+                  reconciled transactions and exception records as context, ensuring every
+                  explanation is traceable to uploaded financial data.
+                </dd>
+              </div>
+              <div>
+                <dt>Explain exceptions, not decisions</dt>
+                <dd>
+                  The LLM does not decide whether transactions match. It explains why a
+                  transaction became an exception - for example, identifying a delayed
+                  settlement or a missing bank entry - while the reconciliation outcome remains
+                  deterministic and auditable.
+                </dd>
+              </div>
+            </dl>
+
+            <p>
+              This design keeps financial reconciliation accurate, explainable,
+              privacy-preserving, and reliable while using AI where it adds the most value:
+              investigating exceptions rather than replacing business logic.
+            </p>
+          </section>
+
+          <section>
+            <span>06</span>
+            <h3>Key Features</h3>
+
+            <dl>
+              <div>
+                <dt>Batch Reconciliation</dt>
+                <dd>Processes 60+ invoices, gateway settlements, and bank statements in one execution.</dd>
+              </div>
+              <div>
+                <dt>Cash Position Dashboard</dt>
+                <dd>Displays match rate, total cash received, pending settlements, and exception count.</dd>
+              </div>
+              <div>
+                <dt>AI Exception Intelligence</dt>
+                <dd>
+                  Explains amount mismatches, missing settlements, duplicate payments, and orphan
+                  transactions with confidence scores and recommended actions.
+                </dd>
+              </div>
+              <div>
+                <dt>Finance Copilot</dt>
+                <dd>
+                  Answers grounded questions such as "Why wasn't INV054 reconciled?" and "How much
+                  cash is still pending?" using reconciled data.
+                </dd>
+              </div>
+            </dl>
+          </section>
+
+          <section>
+            <span>07</span>
+            <h3>Technical Architecture</h3>
+
+            <dl>
+              <div>
+                <dt>Frontend</dt>
+                <dd>React, TypeScript, Tailwind CSS.</dd>
+              </div>
+              <div>
+                <dt>Backend</dt>
+                <dd>FastAPI.</dd>
+              </div>
+              <div>
+                <dt>Data Processing</dt>
+                <dd>Pandas.</dd>
+              </div>
+              <div>
+                <dt>AI Model</dt>
+                <dd>Qwen 3.</dd>
+              </div>
+              <div>
+                <dt>APIs</dt>
+                <dd>REST.</dd>
+              </div>
+              <div>
+                <dt>Outputs</dt>
+                <dd>Reconciled CSV & Exception CSV.</dd>
+              </div>
+            </dl>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+
+<style>
+.case-study {
+  padding:120px 0 80px;
+}
+
+.case-study-layout {
+  display:grid;
+  grid-template-columns:minmax(280px, 0.9fr) minmax(0, 1.35fr);
+  gap:72px;
+  align-items:start;
+}
+
+.case-study-aside {
+  position:sticky;
+  top:110px;
+}
+
+.case-study-aside h2 {
+  margin-bottom:22px;
+}
+
+.case-study-aside p {
+  color:var(--text-secondary);
+  max-width:520px;
+}
+
+.impact-strip {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  border:1px solid var(--border);
+  margin-top:36px;
+}
+
+.impact-strip div {
+  padding:20px;
+  border-right:1px solid var(--border);
+}
+
+.impact-strip div:last-child {
+  border-right:0;
+}
+
+.impact-strip strong {
+  display:block;
+  font-size:1.5rem;
+  color:var(--text-primary);
+  margin-bottom:6px;
+}
+
+.impact-strip span {
+  color:var(--text-secondary);
+  font-size:0.85rem;
+}
+
+.case-study-story {
+  border-left:1px solid var(--border);
+  padding-left:40px;
+}
+
+.case-study-story section {
+  position:relative;
+  padding-bottom:56px;
+}
+
+.case-study-story section:last-child {
+  padding-bottom:0;
+}
+
+.case-study-story section > span {
+  display:inline-block;
+  color:var(--accent);
+  font-size:0.85rem;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.case-study-story h3 {
+  font-size:1.45rem;
+  margin-bottom:14px;
+}
+
+.case-study-story p {
+  color:var(--text-secondary);
+  margin-bottom:16px;
+}
+
+.case-study-story ul,
+.case-study-story ol {
+  color:var(--text-secondary);
+  padding-left:18px;
+  margin-bottom:16px;
+}
+
+.case-study-story li {
+  margin-bottom:10px;
+}
+
+.architecture-diagram {
+  border:1px solid var(--border);
+  background:var(--bg-secondary);
+  padding:16px;
+  margin:8px 0 20px;
+  display:flex;
+  justify-content:center;
+}
+
+.architecture-diagram img {
+  width:100%;
+  max-width:420px;
+  height:auto;
+  border-radius:8px;
+}
+
+.case-study-story dl {
+  display:grid;
+  gap:18px;
+  margin-top:22px;
+  margin-bottom:16px;
+}
+
+.case-study-story dl div {
+  border-top:1px solid var(--border);
+  padding-top:16px;
+}
+
+.case-study-story dt {
+  color:var(--text-primary);
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.case-study-story dd {
+  color:var(--text-secondary);
+}
+
+@media(max-width:800px){
+
+  .case-study {
+    padding:100px 0 60px;
+  }
+
+  .case-study-layout {
+    grid-template-columns:1fr;
+    gap:44px;
+  }
+
+  .case-study-aside {
+    position:static;
+  }
+
+  .impact-strip {
+    grid-template-columns:1fr;
+  }
+
+  .impact-strip div {
+    border-right:0;
+    border-bottom:1px solid var(--border);
+  }
+
+  .impact-strip div:last-child {
+    border-bottom:0;
+  }
+
+  .case-study-story {
+    border-left:0;
+    padding-left:0;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .case-study {
+    padding:90px 0 60px;
+  }
+
+}
+
+@media(max-height:800px) and (min-width:801px){
+
+  .case-study {
+    padding-top:96px;
+  }
+
+  .case-study-aside {
+    top:96px;
+  }
+
+}
+</style>
